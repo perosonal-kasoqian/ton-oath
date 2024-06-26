@@ -1,22 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import TelegramLoginButton from 'react-telegram-login';
 
 function App() {
+
+  const handleTelegramResponse = response => {
+    console.log(response);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="kasoqian_bot" />
       </header>
     </div>
   );
