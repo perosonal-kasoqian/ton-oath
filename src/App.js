@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="kasoqian_bot" />
+        <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="kasoqian_bot"  data-userpic="false"/>
       </header>
     </div>
   );
