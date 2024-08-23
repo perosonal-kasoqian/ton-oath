@@ -5,8 +5,8 @@ function App() {
   const [tgid, setTgid] = useState(null);
 
   useEffect(() => {
-    const tg = window.Telegram.WebApp;
-    const userId = tg.initDataUnsafe.user.id;
+    const tg = window?.Telegram?.WebApp;
+    const userId = tg?.initDataUnsafe?.user?.id;
     setTgid(userId);
     
   }, [window.Telegram]);
@@ -16,7 +16,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           {tgid ? `Your Telegram ID is ${tgid}` : 'Loading...'}
         </p>
