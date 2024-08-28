@@ -33,7 +33,10 @@ function App() {
       <header className="App-header">
         <p>
           {tgid ? `Your Telegram ID is ${tgid}` : 'Loading...'}
-          {initdata ? `Your Telegram Init Data is ${initdata}` : 'Loading...'}
+ 
+        </p>
+        <p>
+        {initdata ? `Your Telegram Init Data is ${initdata}` : 'Loading...'}
         </p>
         <a
           className="App-link"
