@@ -3,14 +3,29 @@ import { useEffect, useState } from 'react';
 function App() {
 
   const [tgid, setTgid] = useState(null);
+  const [initdata, setInitdata] = useState(null);
 
   useEffect(() => {
-    const tg = window?.Telegram?.WebApp;
-    const userId = tg?.initDataUnsafe?.user?.id;
+    const userId = GetTelegramUserIdFunction()
     setTgid(userId);
-    
+
+   if(window?.Telegram?.WebApp?.initDataUnsafe)  setInitdata(JSON.stringify(window?.Telegram?.WebApp?.initDataUnsafe));
+
   }, [window.Telegram]);
 
+  function GetTelegramUserIdFunction() {
+    var tg = window?.Telegram?.WebApp;
+
+    if (!tg) {
+      return 0;
+    }
+
+    if (!tg.initDataUnsafe || !tg.initDataUnsafe.user) {
+      return 0;
+    }
+
+    return tg.initDataUnsafe.user.id;
+  }
 
 
   return (
@@ -18,6 +33,7 @@ function App() {
       <header className="App-header">
         <p>
           {tgid ? `Your Telegram ID is ${tgid}` : 'Loading...'}
+          {initdata ? `Your Telegram Init Data is ${initdata}` : 'Loading...'}
         </p>
         <a
           className="App-link"
