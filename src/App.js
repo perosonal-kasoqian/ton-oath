@@ -9,7 +9,7 @@ function App() {
     const userId = GetTelegramUserIdFunction()
     setTgid(userId);
 
-   if(window?.Telegram?.WebApp?.initDataUnsafe)  setInitdata(JSON.stringify(window?.Telegram?.WebApp?.initDataUnsafe));
+   if(window?.Telegram?.WebApp?.initData)  setInitdata(JSON.stringify(window?.Telegram?.WebApp?.initData));
 
   }, [window.Telegram]);
 
@@ -20,11 +20,11 @@ function App() {
       return 0;
     }
 
-    if (!tg.initDataUnsafe || !tg.initDataUnsafe.user) {
+    if (!tg.initData || !tg.initData.user) {
       return 0;
     }
 
-    return tg.initDataUnsafe.user.id;
+    return tg.initData.user.id;
   }
 
 
