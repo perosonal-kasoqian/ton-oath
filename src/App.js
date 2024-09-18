@@ -9,7 +9,9 @@ function App() {
     const userId = GetTelegramUserIdFunction()
     setTgid(userId);
 
-   if(window?.Telegram?.WebApp?.initData)  setInitdata(JSON.stringify(window?.Telegram?.WebApp?.initData));
+   if(window?.Telegram?.WebApp?.initData){  setInitdata(window?.Telegram?.WebApp?.initData); 
+    console.log(window?.Telegram?.WebApp?.initData);
+   }
 
   }, [window.Telegram]);
 
